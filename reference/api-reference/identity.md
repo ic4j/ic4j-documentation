@@ -4,16 +4,16 @@ IC4J Java Agent currently supports 3 different identity mechanisms. To learn mor
 
 IC4J Agent is using open source Java cryptography library [Bouncy Castle ](https://www.bouncycastle.org/java.html)in our implementation.&#x20;
 
-If you are using BasicIndentity or Secp256k1Identity, define Bouncy Castle as your Java security provider in your code, before you create an Identity.
+If you are using [BasicIndentity](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/identity/BasicIdentity.java) or [Secp256k1Identity](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/identity/Secp256k1Identity.java), define Bouncy Castle as your Java security provider in your code, before you create an Identity.
 
 ```
 ```
 
 ### AnonymousIdentity
 
-AnonymousIdentity is default mechanism in IC4J Agent, that means if you do not specify  Identity explicitly, AnonymousIdentity will be assigned implicitly.
+AnonymousIdentity is default mechanism in IC4J Agent, that means if you do not specify  Identity explicitly, [AnonymousIdentity](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/identity/AnonymousIdentity.java) will be assigned implicitly.
 
-But if you want to explicitly create AnonymousIdentity object, you can use AnonymousIdentity constructor.
+But if you want to explicitly create [AnonymousIdentity](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/identity/AnonymousIdentity.java) object, you can use AnonymousIdentity constructor.
 
 ```java
 Identity identity = new AnonymousIdentity();
@@ -28,7 +28,7 @@ dfx identity new alice
 cp ~/.config/dfx/identity/xxx/identity.pem alice.pem
 ```
 
-You can use either Java [Reader ](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html)or Java[ Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) to read your ED22219 PEM resource.
+You can use either Java [Reader ](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html)or Java[ Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) to read your ED22219 PEM resource and create [BasicIdentity](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/identity/BasicIdentity.java) object.
 
 ```java
 Reader sourceReader = new InputStreamReader(Main.class.getClassLoader().getResourceAsStream(ED25519_IDENTITY_FILE));
@@ -58,7 +58,7 @@ Identity identity = BasicIdentity.fromPEM(input);
 
 The Internet Computer also supports [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) signatures commonly used with Bitcoin or Ethereum.
 
-You can use either Java [Reader ](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html)or Java[ Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) to read your Secp256k1 PEM resource.
+You can use either Java [Reader ](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html)or Java[ Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) to read your Secp256k1 PEM resource and create [Secp256k1Identity](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/identity/Secp256k1Identity.java) object.
 
 ```java
 Reader sourceReader = new InputStreamReader(Main.class.getClassLoader().getResourceAsStream(ED25519_IDENTITY_FILE));

@@ -4,7 +4,7 @@ In the context of the Internet Computer blockchain, a replica refers to the Inte
 
 To be able to connect remotely to the Internet Computer canister IC4J implements ReplicaTransport interface over different Java HTTP Client libraries. Developers can choose specific implementation based on their Java application use case.
 
-ReplicaTransport interface currently supports 4 Internet Computer functions. Calls in ReplicaTransport interface are asynchronous and return CompletableFuture response type.
+[ReplicaTransport](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/ReplicaTransport.java) interface currently supports 4 Internet Computer functions. Calls in [ReplicaTransport](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/ReplicaTransport.java) interface are asynchronous and return [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) response type.
 
 ```java
 public interface ReplicaTransport {
@@ -21,7 +21,7 @@ Apache HTTP 5 library is robust, stable Java implementation of HTTP protocol. It
 
 {% embed url="https://hc.apache.org/httpcomponents-client-5.1.x/index.html" %}
 
-The simplest way how to create ReplicaTransport is to use create method with the IC URL String as a parameter.&#x20;
+The simplest way how to create [ReplicaTransport](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/ReplicaTransport.java) is to use [ReplicaApacheHttpTransport](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/http/ReplicaApacheHttpTransport.java) create method with the IC URL String as a parameter.&#x20;
 
 ```java
 ReplicaTransport transport = 
@@ -57,7 +57,7 @@ For Android development is recommended to use OkHttp Client implementation. OkHt
 
 {% embed url="https://square.github.io/okhttp" %}
 
-Use create method with the IC URL String as a parameter to create OkHttp ReplicaTransport
+Use [ReplicaOkHttpTransport](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/http/ReplicaOkHttpTransport.java) create method with the IC URL String as a parameter to create OkHttp ReplicaTransport
 
 ```java
 ReplicaTransport transport = 
@@ -93,7 +93,7 @@ implementation group: 'org.ic4j', name: 'ic4j-java11transport', version: '0.6.7'
 {% endtab %}
 {% endtabs %}
 
-Use create method with the IC URL String as a parameter to create Java 11 ReplicaTransport
+Use [ReplicaJavaHttpTransport](https://github.com/ic4j/ic4j-java11transport/blob/master/src/main/java/org/ic4j/agent/http/ReplicaJavaHttpTransport.java) create method with the IC URL String as a parameter to create Java 11 ReplicaTransport
 
 ```java
 ReplicaTransport transport = 
