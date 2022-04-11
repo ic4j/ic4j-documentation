@@ -92,6 +92,8 @@ ic.canister=yaku6-4iaaa-aaaab-qacfa-cai
 
 Replace those properties with ones from your deployed canister, either local or remote.
 
+UPDATE call will run asynchronously and return Java [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) object.
+
 Now you can just build the java project and run. Use Gradle script [build.gradle](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/build.gradle). (This build requires Java 1.8, if you are using different version, please make modification in the script). This build script creates fat jar with all required dependencies.
 
 ```
