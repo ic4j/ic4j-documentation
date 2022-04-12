@@ -1,23 +1,33 @@
 # API Reference
 
-Dive into the specifics of each API endpoint by checking out our complete documentation.
+Dive into the specifics by checking out our complete documentation.
 
-## Create ReplicaTransport&#x20;
-
-All the methods associated with `CRUD`ing some pets. Which isn't as weird as it sounds:
+## Create ReplicaTransport Object
 
 {% content-ref url="replicatransport.md" %}
 [replicatransport.md](replicatransport.md)
 {% endcontent-ref %}
 
-## Create Identity
-
-Everything related to users:
+## Create Identity Object
 
 {% content-ref url="identity.md" %}
 [identity.md](identity.md)
 {% endcontent-ref %}
 
-{% hint style="info" %}
-**Good to know:** Using the 'Page Link' block lets you link directly to a page. If this page's name, URL or parent location changes, the reference will be kept up to date. You can also mention a page – like [replicatransport.md](replicatransport.md "mention") – if you don't want a block-level link.
-{% endhint %}
+## Create Principal Object
+
+{% content-ref url="principal.md" %}
+[principal.md](principal.md)
+{% endcontent-ref %}
+
+## Create Agent Object
+
+{% content-ref url="agentbuilder.md" %}
+[agentbuilder.md](agentbuilder.md)
+{% endcontent-ref %}
+
+## Create Canister Proxy Object
+
+{% content-ref url="proxybuilder.md" %}
+[proxybuilder.md](proxybuilder.md)
+{% endcontent-ref %}
