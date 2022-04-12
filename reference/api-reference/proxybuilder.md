@@ -64,3 +64,26 @@ output = proxyResponse.get();
 UPDATE function call is executed asynchronously, returning Java [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) result.
 
 The full source code of this sample can be found [here](https://github.com/ic4j/samples/tree/master/IC4JHelloWorldAdvanced).&#x20;
+
+Developers can optionally use additional annotations.
+
+```java
+@Agent(identity = @Identity(type = IdentityType.BASIC, pem_file = "/cert/Ed25519_identity.pem"), transport = @Transport(url = "http://localhost:8001"))
+@Canister("rrkah-fqaaa-aaaaa-aaaaq-cai")
+@EffectiveCanister("rrkah-fqaaa-aaaaa-aaaaq-cai")
+public interface LoanBroker {
+	@UPDATE
+	@Name("apply")
+	@Waiter(timeout = 30)
+	@ResponseClass(LoanOffer.class)
+	public CompletableFuture<LoanOffer> apply(@Argument(Type.RECORD)LoanApplication application);
+}
+```
+
+Use [@Agent](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Agent.java) annotation if you want to define Identity and Transport properties directly in the proxy interface.
+
+Use [@Canister](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Canister.java) annotation to define canister id.
+
+Use [@EffectiveCanister](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/EffectiveCanister.java) annotation to define effective canister id.
+
+If you are using complex type response and you need to define Java class you need to deserialize to use [@ResponseClass](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/ResponseClass.java) annotation.
