@@ -1,10 +1,15 @@
 # ProxyBuilder
 
-The easiest way how to use IC4J Agent to make calls to the Internet Computer is to use ProxyBuilder. ProxyBuilder will use Java interface with IC4J annotations which represents the Internet Computer canister and its methods and will create proxy object which implements defined  interface. ProxyBuilder will then provide all Candid type serialization and deserialization and also execution of specified canister methods.
+Using ProxyBuilder is the easiest way to make calls to the Internet Computer using the IC4J Agent. ProxyBuilder will use the Java interface with IC4J annotations which represent the Internet Computer Canister.
 
-Let's call Motoko [canister](https://github.com/ic4j/samples/blob/master/IC4JHelloWorldAdvanced/src/main.mo) with one QUERY and one UPDATE method.
+The Internet Computer Canister and its Methods will create a proxy object which implements the defined interface.&#x20;
 
-```
+ProxyBuilder will then provide all Candid type serialization and deserialization steps and the execution of specified canister methods.
+
+Here is an example using Motoko [canister](https://github.com/ic4j/samples/blob/master/IC4JHelloWorldAdvanced/src/main.mo) with one QUERY and one UPDATE method.
+
+{% code title="main.mo" %}
+```javascript
 actor {
     stable var name = "Me";
 
@@ -18,9 +23,11 @@ actor {
     };    
 };
 ```
+{% endcode %}
 
 The Java Proxy interface for this canister looks like [this](https://github.com/ic4j/samples/blob/master/IC4JHelloWorldAdvanced/src/main/java/org/ic4j/samples/helloworld/HelloWorldProxy.java).
 
+{% code title="HelloWorldProxy.java" %}
 ```java
 public interface HelloWorldProxy {	
 	@UPDATE
@@ -33,26 +40,38 @@ public interface HelloWorldProxy {
 	public String peek();
 }
 ```
+{% endcode %}
 
-To define if the method is QUERY or UPDATE use [@QUERY](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/QUERY.java) or [@UPDATE](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/UPDATE.java) annotations. The annotation @Name is optional, if not specified, the ProxyBuilder will implicitly use name of the Java method.
+To define if the method is QUERY or UPDATE use [@QUERY](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/QUERY.java) or [@UPDATE](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/UPDATE.java) annotations.&#x20;
 
-For UPDATE method the developer can explicitly define Waiter object with [@Waiter](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Waiter.java) annotation, which will check state of UPDATE operation in certain interval, defined  by sleep property. The default value is set to 5 seconds. The developer can also define timeout property, until when the Waiter should keep checking the state. Default value is set to 60 seconds. If the annotation is not specified, the ProxyBuilder will automatically set default values.
+The annotation @Name is optional, but if not specified, the ProxyBuilder will implicitly use the name of the Java method.
 
-For method parameters the developer can also set Candid type of the argument with [@Argument ](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Argument.java)annotation. If this annotation is not defined, the ProxyBuilder will use default Java to Candid [mapping](supported-types.md).
+For the UPDATE method the developer can explicitly define the Waiter object with [@Waiter](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Waiter.java) annotation, which will check the state of the UPDATE operation in certain intervals, defined  by the sleep property. The default value for the sleep property is set to 5 seconds.&#x20;
 
-Now we can create proxy object in Java [code](https://github.com/ic4j/samples/blob/master/IC4JHelloWorldAdvanced/src/main/java/org/ic4j/samples/helloworld/Main.java).
+The developer can also define the timeout property, to specify when the Waiter should keep checking the state.&#x20;
 
+The default value for the timeout property is set to 60 seconds. If the annotation is not specified, the ProxyBuilder will automatically set default values.
+
+For Method parameters the developer can also set a Candid type of the argument with the [@Argument ](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Argument.java)annotation. If this annotation is not defined, the ProxyBuilder will use the default Java to Candid [mapping](supported-types.md).
+
+Here is an example of how to create a proxy object in Java [code](https://github.com/ic4j/samples/blob/master/IC4JHelloWorldAdvanced/src/main/java/org/ic4j/samples/helloworld/Main.java).
+
+{% code title="Main.java" %}
 ```java
 Agent agent = new AgentBuilder().transport(transport).identity(identity).build();			
 			
 HelloWorldProxy helloWorldProxy = ProxyBuilder.create(agent, Principal.fromString(icCanister))
-					.getProxy(HelloWorldProxy.class);
+					.getProxy(HelloWorldProxy.class);rr
 ```
+{% endcode %}
 
-ProxyBuilder create method will take 2 arguments, agent and principal.  getProxy method will use proxy interface class as an argument.
+The **ProxyBuilder Create Method** will accept 2 arguments, **Agent and Principal.**&#x20;
 
-The call to the canister is now as simple as calling any other Java function.&#x20;
+The **getProxy Method** will use the **proxy interface class** as an argument.&#x20;
 
+The call to the canister can now be completed by calling any other Java function.&#x20;
+
+{% code title="" %}
 ```java
 String output = helloWorldProxy.peek();
 
@@ -60,13 +79,13 @@ String value = "world";
 CompletableFuture<String> proxyResponse = helloWorldProxy.greet(value);
 output = proxyResponse.get();
 ```
+{% endcode %}
 
-UPDATE function call is executed asynchronously, returning Java [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) result.
+The **UPDATE** function call is executed asynchronously, returning  the Java [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) result.
 
-The full source code of this sample can be found [here](https://github.com/ic4j/samples/tree/master/IC4JHelloWorldAdvanced).&#x20;
+The full source code of this sample can be found [here](https://github.com/ic4j/samples/tree/master/IC4JHelloWorldAdvanced).
 
-Developers can optionally use additional annotations.
-
+{% code title="LoanBroker.java" %}
 ```java
 @Agent(identity = @Identity(type = IdentityType.BASIC, pem_file = "/cert/Ed25519_identity.pem"), transport = @Transport(url = "http://localhost:8001"))
 @Canister("rrkah-fqaaa-aaaaa-aaaaq-cai")
@@ -79,11 +98,14 @@ public interface LoanBroker {
 	public CompletableFuture<LoanOffer> apply(@Argument(Type.RECORD)LoanApplication application);
 }
 ```
+{% endcode %}
 
-Use [@Agent](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Agent.java) annotation if you want to define Identity and Transport properties directly in the proxy interface.
+Developers can optionally use the following additional annotations.
 
-Use [@Canister](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Canister.java) annotation to define canister id.
+Use the  [@Agent](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Agent.java) annotation to define Identity and Transport properties directly in the proxy interface.
 
-Use [@EffectiveCanister](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/EffectiveCanister.java) annotation to define effective canister id.
+Use the  [@Canister](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/Canister.java) annotation to define canister id.
 
-If you are using complex type response and you need to define Java class you need to deserialize to use [@ResponseClass](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/ResponseClass.java) annotation.
+Use the  [@EffectiveCanister](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/annotations/EffectiveCanister.java) annotation to define effective canister id.
+
+If the **Complex Type Response** is being used with Java class needing to be defined, and deserializing is necessary,  use the @ResponseClass annotation.&#x20;

@@ -1,12 +1,12 @@
 # Install IC4J Libraries
 
-The best way to include IC4J libraries in your Java application project is to use Gradle or Maven imports from Maven Central.
+The best way to include IC4J libraries in the Java application project is to use **Gradle** or **Maven Imports** from **Maven Central**.
 
 {% tabs %}
 {% tab title="Gradle" %}
 ```
-implementation 'org.ic4j:ic4j-agent:0.6.7'
-implementation 'org.ic4j:ic4j-candid:0.6.6'
+implementation 'org.ic4j:ic4j-agent:0.6.8'
+implementation 'org.ic4j:ic4j-candid:0.6.8'
 ```
 {% endtab %}
 
@@ -15,12 +15,12 @@ implementation 'org.ic4j:ic4j-candid:0.6.6'
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-agent</artifactId>
-  <version>0.6.7</version>
+  <version>0.6.8</version>
 </dependency>
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-candid</artifactId>
-  <version>0.6.6</version>
+  <version>0.6.8</version>
 </dependency>
 ```
 {% endtab %}

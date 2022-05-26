@@ -2,7 +2,7 @@
 
 ### Make your first Java call to the IC canister
 
-To create your first IC canister, follow instructions from Dfinity Quick Start.
+To create your first IC canister, follow instructions from the Dfinity Quick Start location.
 
 {% embed url="https://smartcontracts.org/docs/quickstart/2-quickstart.html" %}
 Dfinity Quick Start
@@ -14,17 +14,19 @@ You can either use local installation of the Canister SDK or use Motoko Playgrou
 Motoko Playground
 {% endembed %}
 
-If you create local project, it will implicitly create the first Motoko file [**main.mo**](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/src/main.mo). The code is very simple HelloWorld application with one method named **greet**_._
+If you create local project, it will implicitly create the first Motoko file [**main.mo**](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/src/main.mo). The code is a very simple HelloWorld application with one method named **greet**_._
 
-```
+{% code title="main.mo" %}
+```javascript
 actor {
   public func greet(name : Text) : async Text {
     return "Hello, " # name # "!";
   };
 };
 ```
+{% endcode %}
 
-To run this canister code in Motoko Playground just copy and paste this source to the Playground editor and click Deploy button.
+To run this canister code in Motoko Playground just copy and paste this source to the Playground editor and click the **Deploy** button.
 
 We can start building the first Java application, that will invoke **greet** method. The source of IC4JHelloWorld project can be found [here](https://github.com/ic4j/samples/tree/master/IC4JHelloWorld).
 
@@ -33,8 +35,8 @@ For your Java project you can use either Gradle or Maven build. To include IC4J 
 {% tabs %}
 {% tab title="Gradle" %}
 ```markup
-implementation 'org.ic4j:ic4j-agent:0.6.7'
-implementation 'org.ic4j:ic4j-candid:0.6.6'
+implementation 'org.ic4j:ic4j-agent:0.6.8'
+implementation 'org.ic4j:ic4j-candid:0.6.8'
 ```
 {% endtab %}
 
@@ -43,19 +45,22 @@ implementation 'org.ic4j:ic4j-candid:0.6.6'
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-agent</artifactId>
-  <version>0.6.7</version>
+  <version>0.6.8</version>
 </dependency>
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-candid</artifactId>
-  <version>0.6.6</version>
+  <version>0.6.8</version>
 </dependency>
 ```
 {% endtab %}
 {% endtabs %}
 
-Now we can start writing Java code. The easiest way how to communicate with the Internet Computer canister is to use ProxyBuilder. The ProxyBuilder creates Canister Java proxy object based on Java interface with Canister annotations. You can find full source of this interface [here](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/src/main/java/org/ic4j/samples/helloworld/HelloWorldProxy.java).
+Now we can start writing Java code. The easiest way to communicate with the Internet Computer **Canister** is to use **ProxyBuilder**.&#x20;
 
+The ProxyBuilder module creates the Java proxy object Canister  based on Java interface with Canister annotations. You can find full source of this interface [here](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/src/main/java/org/ic4j/samples/helloworld/HelloWorldProxy.java).
+
+{% code title="HelloWorldProxy.java" %}
 ```java
 public interface HelloWorldProxy {	
 	@UPDATE
@@ -64,15 +69,19 @@ public interface HelloWorldProxy {
 	public CompletableFuture<String> greet(@Argument(Type.TEXT)String name);
 }
 ```
+{% endcode %}
 
-As you can see we can define what type is the Canister method (UPDATE or QUERY), name of the method and for UPDATE method also define Waiter properties. For method arguments we can also define Candid type.
+Next, define the **Type of Method** for the Canister (UPDATE or QUERY), the **Name** of the method and define **Waiter** properties for **UPDATE** method.&#x20;
 
-First we have to create to create ReplicaTransport object using URL to your Canister (either local or remote). The we use AgentBuilder to create Agent object.&#x20;
+For method arguments we can also define **Candid** type.
 
-to create Canister Proxy object use ProxyBuilder _create_ method with agent and Canister Principal arguments and then _getProxy_ method passing Java proxy class.
+First we have to create the **ReplicaTransport** object using the URL to your Canister (either local or remote). The we use AgentBuilder to create the **Agent Object**.&#x20;
+
+To create the **Canister Proxy** object use ProxyBuilder _create_ the method with the agent and the Canister Principal arguments and then _getProxy_ method passing Java proxy class.
 
 The full source can be found [here](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/src/main/java/org/ic4j/samples/helloworld/Main.java).
 
+{% code title="Main.java" %}
 ```java
 ReplicaTransport transport = ReplicaApacheHttpTransport.create(icLocation);
 Agent agent = new AgentBuilder().transport(transport).build();			
@@ -82,31 +91,38 @@ String value = "world";
 CompletableFuture<String> proxyResponse = helloWorldProxy.greet(value);			
 String output = proxyResponse.get();
 ```
+{% endcode %}
 
-As you can see, to call the Internet Computer canister you will need 2 properties, location URL and Canister Id. This sample is reading those properties from [_application.properties_](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/src/main/resources/application.properties) file.
+Next, to call the Internet Computer Canister you will need 2 properties, **location URL** and **Canister ID.**&#x20;
 
+This is an example to read those properties from the [_application.properties_](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/src/main/resources/application.properties) file.
+
+{% code title="application.properties" %}
 ```java
 ic.location=https://m7sm4-2iaaa-aaaab-qabra-cai.raw.ic0.app/
 ic.canister=yaku6-4iaaa-aaaab-qacfa-cai
 ```
+{% endcode %}
 
 Replace those properties with ones from your deployed canister, either local or remote.
 
-UPDATE call will run asynchronously and return Java [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) object.
+The **UPDATE** call will run asynchronously and return the Java [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html) object.
 
-Now you can just build the java project and run. Use Gradle script [build.gradle](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/build.gradle). (This build requires Java 1.8, if you are using different version, please make modification in the script). This build script creates fat jar with all required dependencies.
+Next, the Java project can be built and run using **Gradle Script** [build.gradle](https://github.com/ic4j/samples/blob/master/IC4JHelloWorld/build.gradle). (_**This build requires Java 1.8;**_ if you are using a different version, make the necessary modifications in the script).&#x20;
+
+This build script creates **Fat Ja**r with all the required dependencies.
 
 ```
 gradle build
 ```
 
-Then run with java.
+Next run with Java.
 
 ```
 java -jar build/libs/ic4j-sample-helloworld-0.6.6.jar
 ```
 
-You should see result like this.
+The output should look like this.
 
 ```
 [main] INFO org.ic4j.samples.helloworld.Main - Hello, world!
