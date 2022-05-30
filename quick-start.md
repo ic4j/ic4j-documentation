@@ -35,8 +35,8 @@ For your Java project you can use either Gradle or Maven build. To include IC4J 
 {% tabs %}
 {% tab title="Gradle" %}
 ```markup
-implementation 'org.ic4j:ic4j-agent:0.6.8'
-implementation 'org.ic4j:ic4j-candid:0.6.8'
+implementation 'org.ic4j:ic4j-agent:0.6.12'
+implementation 'org.ic4j:ic4j-candid:0.6.12'
 ```
 {% endtab %}
 
@@ -45,12 +45,12 @@ implementation 'org.ic4j:ic4j-candid:0.6.8'
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-agent</artifactId>
-  <version>0.6.8</version>
+  <version>0.6.12</version>
 </dependency>
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-candid</artifactId>
-  <version>0.6.8</version>
+  <version>0.6.12</version>
 </dependency>
 ```
 {% endtab %}
@@ -119,7 +119,7 @@ gradle build
 Next run with Java.
 
 ```
-java -jar build/libs/ic4j-sample-helloworld-0.6.6.jar
+java -jar build/libs/ic4j-sample-helloworld-0.6.12.jar
 ```
 
 The output should look like this.

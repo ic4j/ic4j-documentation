@@ -4,7 +4,7 @@ Another option to call the Internet Computer canisters from Java is to use **Que
 
 Use these options if direct manipulation with Candid data is required or there is a requirement for dynamic invocation.
 
-Create byte\[] array binary Candid payload as an input argument using [IDLArgs](using-idlargs.md).
+Create byte\[] array binary Candid payload as an input argument using [IDLArgs](use-idlargs.md).
 
 ```java
 List<IDLValue> args = new ArrayList<IDLValue>();

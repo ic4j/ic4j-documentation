@@ -157,7 +157,7 @@ LOG.info("Loan Offer APR is " + loanOffer.apr);
 ```
 {% endcode %}
 
-To use [Raw methods](../using-raw-agent-methods.md) or [QueryBuilder](../querybuilder-and-updatebuilder.md#querybuilder) and [UpdateBuilder](../querybuilder-and-updatebuilder.md#updatebuilder) use PojoSerializer and PojoDeserializer directly in the Java code.
+To use [Raw methods](../using-raw-methods.md) or [QueryBuilder](../querybuilder-and-updatebuilder.md#querybuilder) and [UpdateBuilder](../querybuilder-and-updatebuilder.md#updatebuilder) use PojoSerializer and PojoDeserializer directly in the Java code.
 
 {% code title="Main.java" %}
 ```java

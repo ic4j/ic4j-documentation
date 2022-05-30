@@ -33,6 +33,6 @@ This table shows implicit mapping between Candid types and default Java type ass
 | opt       | Optional   |
 | principal | Principal  |
 | vec       | array      |
-| record    | Map        |
-| variant   | Map        |
+| record    | Map, Class |
+| variant   | Map, Enum  |
 | null      | Null       |

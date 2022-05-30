@@ -66,7 +66,7 @@ byte[] buf = IDLArgs.create(idlArgs).toBytes();
 ```
 {% endcode %}
 
-Use[ UpdateBuilder](../querybuilder-and-updatebuilder.md#updatebuilder), [QueryBuilder](../querybuilder-and-updatebuilder.md#querybuilder) or[ Raw Methods](../using-raw-agent-methods.md) to call the Canister.&#x20;
+Use[ UpdateBuilder](../querybuilder-and-updatebuilder.md#updatebuilder), [QueryBuilder](../querybuilder-and-updatebuilder.md#querybuilder) or[ Raw Methods](../using-raw-methods.md) to call the Canister.&#x20;
 
 {% code title="Main.java" %}
 ```java

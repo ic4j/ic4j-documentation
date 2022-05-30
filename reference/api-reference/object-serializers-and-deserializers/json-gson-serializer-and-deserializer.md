@@ -7,7 +7,7 @@ To use [IC4J Candid Gson library](https://github.com/ic4j/ic4j-candid-gson) add 
 {% tabs %}
 {% tab title="Gradle" %}
 ```
-implementation 'org.ic4j:ic4j-candid-gson:0.6.8'
+implementation 'org.ic4j:ic4j-candid-gson:0.6.12'
 ```
 {% endtab %}
 
@@ -16,7 +16,7 @@ implementation 'org.ic4j:ic4j-candid-gson:0.6.8'
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-candid-gson</artifactId>
-  <version>0.6.8</version>
+  <version>0.6.12</version>
 </dependency>
 ```
 {% endtab %}
@@ -106,7 +106,7 @@ The example uses the file with JSON [LoanApplication payload](https://github.com
 ```
 {% endcode %}
 
-To be able to properly map JSON names and values to Candid name types declare the [IDLType](../using-idlargs.md#idltype) structure as follows:
+To be able to properly map JSON names and values to Candid name types declare the [IDLType](../use-idlargs.md#idltype) structure as follows:
 
 {% code title="Main.java" %}
 ```java
@@ -148,7 +148,7 @@ byte[] buf = IDLArgs.create(idlArgs).toBytes();
 ```
 {% endcode %}
 
-Use[ UpdateBuilder](../querybuilder-and-updatebuilder.md#updatebuilder), [QueryBuilder](../querybuilder-and-updatebuilder.md#querybuilder) or[ Raw Methods](../using-raw-agent-methods.md) to call the Canister and deserialize output to [JsonElement](https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/JsonElement.html).&#x20;
+Use[ UpdateBuilder](../querybuilder-and-updatebuilder.md#updatebuilder), [QueryBuilder](../querybuilder-and-updatebuilder.md#querybuilder) or[ Raw Methods](../using-raw-methods.md) to call the Canister and deserialize output to [JsonElement](https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/JsonElement.html).&#x20;
 
 {% code title="Main.java" %}
 ```java

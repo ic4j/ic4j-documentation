@@ -14,8 +14,8 @@ Use Pojo Serializer and Deserializer to handle plain Java objects.
 
 Use JSON Jackson Serializer and Deserializer to handle Jackson JSON objects.
 
-{% content-ref url="json-jackson-serializer-and-deserializer.md" %}
-[json-jackson-serializer-and-deserializer.md](json-jackson-serializer-and-deserializer.md)
+{% content-ref url="jackson-serializer-and-deserializer.md" %}
+[jackson-serializer-and-deserializer.md](jackson-serializer-and-deserializer.md)
 {% endcontent-ref %}
 
 Use JSON Gson Serializer and Deserializer to handle Gson JSON objects.
