@@ -6,15 +6,15 @@ To add required IC4J libraries to your Android project open **gradle.build** fil
 
 ```
 implementation 'commons-codec:commons-codec:1.15'
-implementation 'org.ic4j:ic4j-candid:0.6.12'
+implementation 'org.ic4j:ic4j-candid:0.6.17'
 // https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on
 implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
 // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on
 implementation 'org.bouncycastle:bcpkix-jdk15on:1.70'
-implementation('org.ic4j:ic4j-agent:0.6.12') {
+implementation('org.ic4j:ic4j-agent:0.6.17') {
        exclude group: 'org.apache.httpcomponents.client5', module: 'httpclient5'
  }
- implementation 'org.slf4j:slf4j-api:1.7.36'
+ implementation 'org.slf4j:slf4j-api:2.0.4'
 ```
 
 Android application preferably uses [OkHttp HTTP](replicatransport.md#okhttp-client-transport-implementation) client so Apache HTTP 5 library can be excluded.

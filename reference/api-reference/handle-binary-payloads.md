@@ -55,7 +55,7 @@ public interface ImagesProxy {
 
 Then in a simple Java class , [ProxyBuilder](proxybuilder.md) can be used to create Canister Java proxy.&#x20;
 
-The source can be found in M[ain.java](https://github.com/ic4j/samples/blob/master/IC4JImageSample/src/main/java/org/ic4j/samples/image/Main.java) file.
+The source can be found in [Main.java](https://github.com/ic4j/samples/blob/master/IC4JImageSample/src/main/java/org/ic4j/samples/image/Main.java) file.
 
 {% code title="Main.java" %}
 ```java
