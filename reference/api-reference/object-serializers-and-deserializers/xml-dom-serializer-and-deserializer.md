@@ -1,4 +1,4 @@
-# XML Serializer and Deserializer
+# XML DOM Serializer and Deserializer
 
 Use [DOMSerializer](https://github.com/ic4j/ic4j-candid/blob/master/src/main/java/org/ic4j/candid/dom/DOMSerializer.java) and [DOMDeserializer](https://github.com/ic4j/ic4j-candid/blob/master/src/main/java/org/ic4j/candid/dom/DOMDeserializer.java) to serialize and deserialize [Java XML DOM](https://docs.oracle.com/javase/8/docs/api/org/w3c/dom/package-summary.html) object to and from the Candid payload of type RECORD.&#x20;
 
@@ -92,7 +92,7 @@ The Serializer input is the variable type DOM [Element](https://docs.oracle.com/
 
 {% code title="Main.java" %}
 ```java
-JsonNode jsonValue = readNode(LOAN_APPLICATION_FILE);
+Element xmlValue = readNode(LOAN_APPLICATION_FILE);
 		
 IDLValue idlValue = IDLValue.create(xmlValue, DOMSerializer.create());
 List<IDLValue> idlArgs = new ArrayList<IDLValue>();
@@ -102,7 +102,7 @@ byte[] buf = IDLArgs.create(idlArgs).toBytes();
 ```
 {% endcode %}
 
-To be able to properly map names and values to Candid name types fo DOMDeserializer, declare the [IDLType](../use-idlargs.md#idltype) structure as follows:
+To be able to properly map names and values to Candid name types for DOMDeserializer, declare the [IDLType](../use-idlargs.md#idltype) structure as follows:
 
 {% code title="Main.java" %}
 ```java
@@ -117,7 +117,7 @@ IDLType resultIdlType =  IDLType.createType(Type.RECORD, offerRecord);
 ```
 {% endcode %}
 
-Use[ UpdateBuilder](../querybuilder-and-updatebuilder.md#updatebuilder), [QueryBuilder](../querybuilder-and-updatebuilder.md#querybuilder) or[ Raw Methods](../using-raw-methods.md) to call the Canister and deserialize output to DOM [Element](https://docs.oracle.com/javase/8/docs/api/org/w3c/dom/Element.html).  Function **rootElement** is used to define root element of the XML structure. To set [Candid XML Attributes](xml-serializer-and-deserializer.md#undefined) in XML output use **setAttributes** function with **true** value.
+Use[ UpdateBuilder](../querybuilder-and-updatebuilder.md#updatebuilder), [QueryBuilder](../querybuilder-and-updatebuilder.md#querybuilder) or[ Raw Methods](../using-raw-methods.md) to call the Canister and deserialize output to DOM [Element](https://docs.oracle.com/javase/8/docs/api/org/w3c/dom/Element.html).  Function **rootElement** is used to define root element of the XML structure. To set [Candid XML Attributes](xml-dom-serializer-and-deserializer.md#undefined) in XML output use **setAttributes** function with **true** value.
 
 {% code title="Main.java" %}
 ```java

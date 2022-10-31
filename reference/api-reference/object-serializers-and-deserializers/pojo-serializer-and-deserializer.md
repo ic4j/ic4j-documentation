@@ -85,7 +85,7 @@ public interface LoanProxy {
 ```
 {% endcode %}
 
-LoanApplication and LoanOffer Java classes with the Candid annotation is defined in [LoanApplication.java](https://github.com/ic4j/samples/blob/master/IC4JPojoSample/src/main/java/org/ic4j/samples/pojo/LoanApplication.java) and [LoanOffer.java](https://github.com/ic4j/samples/blob/master/IC4JPojoSample/src/main/java/org/ic4j/samples/pojo/LoanOffer.java).
+LoanApplication and LoanOffer Java classes with the Candid annotation are defined in [LoanApplication.java](https://github.com/ic4j/samples/blob/master/IC4JPojoSample/src/main/java/org/ic4j/samples/pojo/LoanApplication.java) and [LoanOffer.java](https://github.com/ic4j/samples/blob/master/IC4JPojoSample/src/main/java/org/ic4j/samples/pojo/LoanOffer.java).
 
 {% code title="LoanApplication.java" %}
 ```java
@@ -127,7 +127,7 @@ public class LoanOffer{
 ```
 {% endcode %}
 
-By default, **PojoSerializer** and **PojoDeserializer** will use J[ava to Candid type mapping](../supported-types.md) and use the Java member variable name as the name of the Candid RECORD field.&#x20;
+By default, **PojoSerializer** and **PojoDeserializer** will use [Java to Candid type mapping](../supported-types.md) and use the Java member variable name as the name of the Candid RECORD field.&#x20;
 
 Use Candid annotations [@Field](https://github.com/ic4j/ic4j-candid/blob/master/src/main/java/org/ic4j/candid/annotations/Field.java) to override the default type and [@Name](https://github.com/ic4j/ic4j-candid/blob/master/src/main/java/org/ic4j/candid/annotations/Name.java) to override the default name.
 

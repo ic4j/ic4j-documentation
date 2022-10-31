@@ -26,8 +26,8 @@ Use JSON Gson Serializer and Deserializer to handle Gson JSON objects.
 
 Use XML Serializer and Deserializer to handle XML DOM objects.
 
-{% content-ref url="xml-serializer-and-deserializer.md" %}
-[xml-serializer-and-deserializer.md](xml-serializer-and-deserializer.md)
+{% content-ref url="xml-dom-serializer-and-deserializer.md" %}
+[xml-dom-serializer-and-deserializer.md](xml-dom-serializer-and-deserializer.md)
 {% endcontent-ref %}
 
 Use JDBC Serializer to handle JDBC objects.

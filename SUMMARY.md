@@ -23,6 +23,7 @@
     * [Pojo Serializer and Deserializer](reference/api-reference/object-serializers-and-deserializers/pojo-serializer-and-deserializer.md)
     * [JSON Jackson Serializer and Deserializer](reference/api-reference/object-serializers-and-deserializers/jackson-serializer-and-deserializer.md)
     * [JSON Gson Serializer and Deserializer](reference/api-reference/object-serializers-and-deserializers/json-gson-serializer-and-deserializer.md)
-    * [XML Serializer and Deserializer](reference/api-reference/object-serializers-and-deserializers/xml-serializer-and-deserializer.md)
+    * [XML DOM Serializer and Deserializer](reference/api-reference/object-serializers-and-deserializers/xml-dom-serializer-and-deserializer.md)
+    * [XML JAXB Serializer and Deserializer](reference/api-reference/object-serializers-and-deserializers/xml-jaxb-serializer-and-deserializer.md)
     * [JDBC Serializer](reference/api-reference/object-serializers-and-deserializers/jdbc-serializer.md)
   * [Android Development](reference/api-reference/android-development.md)
