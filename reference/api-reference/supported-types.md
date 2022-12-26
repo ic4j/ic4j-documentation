@@ -35,4 +35,6 @@ This table shows implicit mapping between Candid types and default Java type ass
 | vec       | array      |
 | record    | Map, Class |
 | variant   | Map, Enum  |
+| func      | Func       |
+| service   | Service    |
 | null      | Null       |
