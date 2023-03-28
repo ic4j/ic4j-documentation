@@ -6,7 +6,8 @@ IC4J Agent uses the open source Java cryptography library [Bouncy Castle ](https
 
 If [BasicIndentity](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/identity/BasicIdentity.java) or [Secp256k1Identity](https://github.com/ic4j/ic4j-agent/blob/master/src/main/java/org/ic4j/agent/identity/Secp256k1Identity.java) is being used, define **Bouncy Castle** as the Java security provider in the code, before an Identity is created.
 
-```
+```java
+Security.addProvider(new BouncyCastleProvider());
 ```
 
 ## AnonymousIdentity

@@ -84,7 +84,7 @@ To make core libraries compatible with Java version 1.8, it is recommended that 
 {% tabs %}
 {% tab title="Gradle" %}
 ```
-implementation 'org.ic4j:ic4j-java11transport:0.6.18'
+implementation 'org.ic4j:ic4j-java11transport:0.6.19'
 ```
 {% endtab %}
 
@@ -93,7 +93,7 @@ implementation 'org.ic4j:ic4j-java11transport:0.6.18'
 <dependency>
     <groupId>org.ic4j</groupId>
     <artifactId>ic4j-java11transport</artifactId>
-    <version>0.6.18</version>
+    <version>0.6.19</version>
 </dependency>
 ```
 {% endtab %}
