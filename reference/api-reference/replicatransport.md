@@ -32,7 +32,13 @@ ReplicaApacheHttpTransport.create("http://localhost:8000");
 
 For advanced use cases, for example, to create Java server type applications handling a large number of clients and canisters, additional parameters can be defined.
 
-<table><thead><tr><th width="206.28690807799444">Parameter</th><th></th></tr></thead><tbody><tr><td>url</td><td>Canister URL</td></tr><tr><td>maxTotal</td><td>Maximum total connections</td></tr><tr><td>maxPerRoute</td><td>Maximum connections per route</td></tr><tr><td>connectionTimeToLive</td><td>Time to live for connection in seconds</td></tr><tr><td>timeout</td><td>Connection timeout in seconds</td></tr></tbody></table>
+| Parameter            |                                        |
+| -------------------- | -------------------------------------- |
+| url                  | Canister URL                           |
+| maxTotal             | Maximum total connections              |
+| maxPerRoute          | Maximum connections per route          |
+| connectionTimeToLive | Time to live for connection in seconds |
+| timeout              | Connection timeout in seconds          |
 
 ```java
 ReplicaTransport transport = 
