@@ -7,7 +7,7 @@ To use [IC4J Candid Gson library](https://github.com/ic4j/ic4j-candid-gson) add 
 {% tabs %}
 {% tab title="Gradle" %}
 ```
-implementation 'org.ic4j:ic4j-candid-gson:0.6.19'
+implementation 'org.ic4j:ic4j-candid-gson:0.6.19.5'
 ```
 {% endtab %}
 
@@ -16,7 +16,7 @@ implementation 'org.ic4j:ic4j-candid-gson:0.6.19'
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-candid-gson</artifactId>
-  <version>0.6.19</version>
+  <version>0.6.19.5</version>
 </dependency>
 ```
 {% endtab %}
