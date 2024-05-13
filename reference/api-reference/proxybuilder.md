@@ -87,7 +87,7 @@ The full source code of this sample can be found [here](https://github.com/ic4j/
 
 {% code title="LoanBroker.java" %}
 ```java
-@Agent(identity = @Identity(type = IdentityType.BASIC, pem_file = "/cert/Ed25519_identity.pem"), transport = @Transport(url = "http://localhost:8001"))
+@Agent(identity = @Identity(type = IdentityType.BASIC, pem_file = "/cert/Ed25519_identity.pem"), transport = @Transport(url = "http://localhost:4943/"))
 @Canister("rrkah-fqaaa-aaaaa-aaaaq-cai")
 @EffectiveCanister("rrkah-fqaaa-aaaaa-aaaaq-cai")
 public interface LoanBroker {

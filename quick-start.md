@@ -99,7 +99,7 @@ This is an example to read those properties from the [_application.properties_](
 
 {% code title="application.properties" %}
 ```java
-ic.location=https://m7sm4-2iaaa-aaaab-qabra-cai.raw.ic0.app/
+ic.location=https://icp-api.io/
 ic.canister=yaku6-4iaaa-aaaab-qacfa-cai
 ```
 {% endcode %}

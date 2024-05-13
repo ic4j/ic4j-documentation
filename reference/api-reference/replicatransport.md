@@ -27,7 +27,7 @@ The simplest way to create [ReplicaTransport](https://github.com/ic4j/ic4j-agent
 
 ```java
 ReplicaTransport transport = 
-ReplicaApacheHttpTransport.create("http://localhost:8000");
+ReplicaApacheHttpTransport.create("http://localhost:4943/");
 ```
 
 For advanced use cases, for example, to create Java server type applications handling a large number of clients and canisters, additional parameters can be defined.
@@ -36,7 +36,7 @@ For advanced use cases, for example, to create Java server type applications han
 
 ```java
 ReplicaTransport transport = 
-ReplicaApacheHttpTransport.create("http://localhost:8000", maxTotal, maxPerRoute,
+ReplicaApacheHttpTransport.create("http://localhost:4943/", maxTotal, maxPerRoute,
  connectionTimeToLive, int timeout);
 ```
 
@@ -44,7 +44,7 @@ For even more complex scenarios ReplicaTransport can be created with the explici
 
 ```
 ReplicaTransport transport = 
-ReplicaApacheHttpTransport.create("http://localhost:8000",asyncClientConnectionManager, int timeout);
+ReplicaApacheHttpTransport.create("http://localhost:4943/",asyncClientConnectionManager, int timeout);
 ```
 
 ## OkHttp Client transport implementation
@@ -59,7 +59,7 @@ Use [ReplicaOkHttpTransport](https://github.com/ic4j/ic4j-agent/blob/master/src/
 
 ```java
 ReplicaTransport transport = 
-ReplicaOkHttpTransport.create("http://localhost:8000");
+ReplicaOkHttpTransport.create("http://localhost:4943/");
 ```
 
 If needed, the **Connection Timeout** can be explicitly defined : &#x20;
@@ -97,14 +97,14 @@ Use [ReplicaJavaHttpTransport](https://github.com/ic4j/ic4j-java11transport/blob
 
 ```java
 ReplicaTransport transport = 
-ReplicaJavaHttpTransport.create("http://localhost:8000");
+ReplicaJavaHttpTransport.create("http://localhost:4943/");
 ```
 
 If needed the connection timeout can be defined explicitly.
 
 ```java
 ReplicaTransport transport = 
-ReplicaJavaHttpTransport.create("http://localhost:8000", timeout);
+ReplicaJavaHttpTransport.create("http://localhost:4943/", timeout);
 ```
 
 ###
