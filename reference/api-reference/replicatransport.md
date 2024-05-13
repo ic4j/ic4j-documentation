@@ -66,7 +66,7 @@ If needed, the **Connection Timeout** can be explicitly defined : &#x20;
 
 ```java
 ReplicaTransport transport = 
-ReplicaOkHttpTransport.create("http://localhost:8000", timeout);
+ReplicaOkHttpTransport.create("http://localhost:4943/", timeout);
 ```
 
 ## Java 11 HTTP Client transport implementation
