@@ -5,8 +5,8 @@ The best way to include IC4J libraries in the Java application project is to use
 {% tabs %}
 {% tab title="Gradle" %}
 ```
-implementation 'org.ic4j:ic4j-agent:0.6.19.7'
-implementation 'org.ic4j:ic4j-candid:0.6.19.7'
+implementation 'org.ic4j:ic4j-agent:0.7.0'
+implementation 'org.ic4j:ic4j-candid:0.7.0'
 ```
 {% endtab %}
 
@@ -15,12 +15,12 @@ implementation 'org.ic4j:ic4j-candid:0.6.19.7'
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-agent</artifactId>
-  <version>0.6.19.7</version>
+  <version>0.7.0</version>
 </dependency>
 <dependency>
   <groupId>org.ic4j</groupId>
   <artifactId>ic4j-candid</artifactId>
-  <version>0.6.19.7</version>
+  <version>0.7.0</version>
 </dependency>
 ```
 {% endtab %}

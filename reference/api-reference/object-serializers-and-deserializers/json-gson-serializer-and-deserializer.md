@@ -2,27 +2,7 @@
 
 Alternative option to work with JSON in Java is to use [Google Gson](https://github.com/google/gson) open source library.
 
-To use [IC4J Candid Gson library](https://github.com/ic4j/ic4j-candid-gson) add dependencies to Gradle or Maven project.
-
-{% tabs %}
-{% tab title="Gradle" %}
-```
-implementation 'org.ic4j:ic4j-candid-gson:0.6.19.7'
-```
-{% endtab %}
-
-{% tab title="Maven" %}
-```xml
-<dependency>
-  <groupId>org.ic4j</groupId>
-  <artifactId>ic4j-candid-gson</artifactId>
-  <version>0.6.19.7</version>
-</dependency>
-```
-{% endtab %}
-{% endtabs %}
-
-Use [GsonSerializer](https://github.com/ic4j/ic4j-candid-gson/blob/master/src/main/java/org/ic4j/candid/gson/GsonSerializer.java) and [GsonDeserializer](https://github.com/ic4j/ic4j-candid-gson/blob/master/src/main/java/org/ic4j/candid/gson/GsonDeserializer.java) to serialize and deserialize [Java Gson](https://github.com/google/gson) JSON object to and from the Candid payload of type RECORD.&#x20;
+Use [GsonSerializer](https://github.com/ic4j/ic4j-candid/blob/master/src/main/java/org/ic4j/candid/gson/GsonSerializer.java) and [GsonDeserializer](https://github.com/ic4j/ic4j-candid/blob/master/src/main/java/org/ic4j/candid/gson/GsonDeserializer.java) to serialize and deserialize [Java Gson](https://github.com/google/gson) JSON object to and from the Candid payload of type RECORD.&#x20;
 
 A fully functional example using GsonSerializer and GsonDeserializer can be found [here](https://github.com/ic4j/samples/tree/master/IC4JGsonSample).
 
